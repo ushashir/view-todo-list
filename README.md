@@ -1,3 +1,28 @@
+View ToDo List
+=======================
+
+## Developer
+* Ushahemba Shir. Powered by [Nawill IT Solution] (https//nawill.ng). Done in fufilment of an assignment by senior developer ** Shittu Sheriff **
+
+## Discription
+* users can login with their twitter credential and then be able to view all users on that API from each user, you should be able to see their corresponding todo
+
+
+Users: https://jsonplaceholder.typicode.com/users
+Todo: https://jsonplaceholder.typicode.com/users
+
+
+## Build with
+* React
+
+## Dependencies
+* Twitter api
+
+## Features
+
+
+## Contributors
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
