@@ -9,7 +9,7 @@ View ToDo List
 
 
 Users: https://jsonplaceholder.typicode.com/users
-Todo: https://jsonplaceholder.typicode.com/users
+Todo: https://jsonplaceholder.typicode.com/todos
 
 
 ## Build with

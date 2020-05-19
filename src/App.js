@@ -1,11 +1,11 @@
+
 import React from 'react';
 import './App.css';
+import View from './components/View';
 
 function App() {
   return (
-   
-        <h1>Hello Nawill IT Solutions</h1>
-  
+    <View />
   );
 }
 
