@@ -33,6 +33,7 @@ class App extends Component {
         } else {
             return (
                 <div className='tc'>
+                    <img alt="logo" src={ require('./logo.png') } />
                     <h1>SEARCH TODO LIST APP</h1>
                     <SearchBox searchChange={this.onsearchChange}/>
                     <Scroll>

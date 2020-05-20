@@ -1,6 +1,4 @@
 import React from 'react';
-// import users from './users'
-
 
 const ViewDiv = ( { id, name, username, email, phone, address, website } ) => {
 
