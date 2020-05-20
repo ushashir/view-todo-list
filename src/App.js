@@ -1,18 +1,49 @@
-
-import React from 'react';
+import React, { Component } from 'react';
 import ViewList from './components/ViewList';
-import { users } from './components/users';
 import SearchBox from './components/SearchBox';
+import Scroll from './components/Scroll';
 
-function App() {
-  return (
-    <div >
-      <h1 className="tc">VIEW TODO LIST APP</h1>
-      <SearchBox />
-      <ViewList users={users} />
-    </div>
+
+class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            users: [], 
+            searchField: ''
+        }
+    }
+
+    componentDidMount(){
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response=> response.json())
+        .then(users=>this.setState({users: users}));
+    }
     
-  );
+    onsearchChange=(event)=> {
+        this.setState({searchField: event.target.value})
+    }
+    
+    render () {
+        const filteredUsers=this.state.users.filter(users=>{
+            return users.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+           
+        })
+        if (this.state.users.lenght === 0){
+            return <h1>Loading</h1>
+        } else {
+            return (
+                <div className='tc'>
+                    <h1>SEARCH TODO LIST APP</h1>
+                    <SearchBox searchChange={this.onsearchChange}/>
+                    <Scroll>
+                        <ViewList users={filteredUsers}/>
+                    </Scroll>
+                </div>
+            )
+        }  
+    }
 }
+
+        
 
 export default App;
