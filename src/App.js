@@ -1,11 +1,17 @@
 
 import React from 'react';
-// import './App.css';
-import View from './components/View';
+import ViewList from './components/ViewList';
+import { users } from './components/users';
+import SearchBox from './components/SearchBox';
 
 function App() {
   return (
-    <View />
+    <div >
+      <h1 className="tc">VIEW TODO LIST APP</h1>
+      <SearchBox />
+      <ViewList users={users} />
+    </div>
+    
   );
 }
 

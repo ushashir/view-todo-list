@@ -2,7 +2,7 @@ import React from 'react';
 // import users from './users'
 
 
-const View = ( { id, name, username, email, phone, address, website } ) => {
+const ViewDiv = ( { id, name, username, email, phone, address, website } ) => {
 
     return (
     
@@ -22,4 +22,4 @@ const View = ( { id, name, username, email, phone, address, website } ) => {
          
     );
 }
-export default View;
+export default ViewDiv;

@@ -1,5 +1,5 @@
 import React from 'react';
-import View from './View';
+import ViewDiv from './ViewDiv';
 
 const ViewList = ({ users }) => {
     return (
@@ -7,7 +7,7 @@ const ViewList = ({ users }) => {
         {
         users.map((user, i) => {
             return  (
-                <View
+                <ViewDiv
                     key={i} 
                     id={users[i].id} 
                     name={users[i].name}
@@ -16,7 +16,7 @@ const ViewList = ({ users }) => {
                     phone={users[i].phone} 
                     address={users[i].address.city}
                     website={users[i].website}
-                    
+
             /> 
             );
             })     
