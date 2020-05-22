@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ViewList from './components/ViewList';
 import SearchBox from './components/SearchBox';
 import Scroll from './components/Scroll';
+// import Login from './components/Login'
 
 
 class App extends Component {
