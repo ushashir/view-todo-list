@@ -2,17 +2,27 @@ import React, { Component } from 'react';
 import ViewList from './components/ViewList';
 import SearchBox from './components/SearchBox';
 import Scroll from './components/Scroll';
-import Login from './components/Login'
+import Login from './components/Login';
+import Navigation from './components/Navigation';
 
+
+
+const initialState = {
+    route: "login",
+    // isLoggedIn: false,
+    // user: {
+    //     id: "",
+    //     name: "",
+    //     password: "",    
+    // },
+    users: [],
+    searchField: ''
+}
 
 class App extends Component {
     constructor() {
         super()
-        this.state = {
-            route: 'login',
-            users: [], 
-            searchField: ''
-        }
+        this.state = initialState;
     }
 
     componentDidMount(){
@@ -21,6 +31,11 @@ class App extends Component {
         .then(users=>this.setState({users: users}));
     }
     
+    onRouteChange = ( route ) => {
+        this.setState({route: route});
+    }
+        
+
     onsearchChange=(event)=> {
         this.setState({searchField: event.target.value})
     }
@@ -30,21 +45,25 @@ class App extends Component {
             return users.name.toLowerCase().includes(this.state.searchField.toLowerCase())
            
         })
-        if (this.state.users.lenght === 0){
+        if (this.state.users.length === 0){
             return <h1>Loading</h1>
         } else {
             return (
                 <div className='tc'>
-                    <img alt="logo" src={ require('./logo.png') } />
+                    {/* <img alt="logo" src={ require('./logo.png') } /> */}
+                    <Navigation onRouteChange = {this.onRouteChange} />
                     <h1>SEARCH TODO LIST APP</h1>
-                    {this.state.route === 'login' ? <Login /> :
-                        <div> 
-                            <SearchBox searchChange={this.onsearchChange}/>
-                            <Scroll>
-                                <ViewList users={filteredUsers}/>
-                            </Scroll>
-                        </div>
-                        }
+                    
+                    {this.state.route === 'login' 
+                    ? <Login onRouteChange = {this.onRouteChange} /> 
+                    :
+                    <div> 
+                        <SearchBox searchChange={this.onsearchChange}/>
+                        <Scroll>
+                            <ViewList users={filteredUsers}/>
+                        </Scroll>
+                    </div>
+                    }
                         
                 </div>
             )

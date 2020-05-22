@@ -1,22 +1,22 @@
 import React from "react";
 
-class SignIn extends React.Component {
+class Login extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            signInEmail: "",
-            signInPassword: ""
+            loginEmail: "",
+            loginPassword: ""
         }
     }
     onEmailChange = (event) => {
-        this.setState({signInEmail: event.target.value});
+        this.setState({loginEmail: event.target.value});
     };
     onPasswordChange = (event) => {
-        this.setState({signInPassword: event.target.value});
+        this.setState({loginPassword: event.target.value});
     };
-    onSubmitSignIn = () => {
-        fetch("http://localhost:3000/signin", {
+    onSubmitLogin = () => {
+        fetch("http://localhost:3000/login", {
             method: "post",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -52,7 +52,8 @@ class SignIn extends React.Component {
                             </div>
                             <div className="">
                             <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                            type="submit" value="Login" onClick = {this.onSubmitSignIn}/>
+                            type="submit" value="login" 
+                            onClick = { () => onRouteChange('home') } />
                             </div>
                         </fieldset>
                     </div>
@@ -63,4 +64,4 @@ class SignIn extends React.Component {
     
 }
 
-export default SignIn;
+export default Login;
