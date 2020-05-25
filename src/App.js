@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 import ViewList from './components/ViewList';
 import SearchBox from './components/SearchBox';
 import Scroll from './components/Scroll';
-import Login from './components/Login';
 import Navigation from './components/Navigation';
-
-
-
+import Login from './components/Login';
+        
 const initialState = {
     route: "login",
-    // isLoggedIn: false,
+    isLogin: false,
+    users: [],
+    searchField: '',
     // user: {
     //     id: "",
     //     name: "",
     //     password: "",    
     // },
-    users: [],
-    searchField: ''
 }
 
 class App extends Component {
@@ -30,7 +28,8 @@ class App extends Component {
         .then(response=> response.json())
         .then(users=>this.setState({users: users}));
     }
-    
+
+    // Routes
     onRouteChange = ( route ) => {
         this.setState({route: route});
     }
@@ -41,6 +40,7 @@ class App extends Component {
     }
     
     render () {
+
         const filteredUsers=this.state.users.filter(users=>{
             return users.name.toLowerCase().includes(this.state.searchField.toLowerCase())
            
